@@ -1,6 +1,6 @@
 # pico_docker_image
 
-Builds a container image every month to use in other actions to not build the container on every push, but still keep it updated.
+Builds a container image every month to use in other actions to not build the container on every push, but still keep it updated. 
 
 Use with
 ```yaml
