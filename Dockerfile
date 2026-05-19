@@ -1,5 +1,5 @@
 # Fetch ubuntu image
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 
 # Install prerequisites
 RUN \
@@ -32,5 +32,17 @@ EOF
     
 # Set the Pico SDK environment variable
 ENV PICO_SDK_PATH=/project/pico-sdk/
+
+# install nodejs for action workflows
+RUN <<EOF
+    apt update
+    apt install curl unzip -y
+    curl -fsSL https://deb.nodesource.com/setup_22.x -o nodesource_setup.sh
+    chmod +x nodesource_setup.sh
+    ./nodesource_setup.sh
+    apt-get install -y nodejs
+node -v
+EOF
+
 
 # Copy in our source files
